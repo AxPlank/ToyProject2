@@ -1,0 +1,271 @@
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <style>
+            .blackk { font-size: 50pt; color: black; font-weight: border; text-shadow: 1px 1px 1px black; }
+            .redd { font-size: 50pt; color: red; font-weight: border; text-shadow: 1px 1px 1px black; }
+            .greenn { font-size: 50pt; color: green; font-weight: border; text-shadow: 1px 1px 1px black; }
+            .whitee { font-size: 50pt; color: #e9e9e9ff; font-weight: border; text-shadow: 1px 1px 1px black; }
+            .yelloww { font-size: 50pt; color: #ffca34ff; font-weight: border; text-shadow: 1px 1px 1px black; }
+            .sall { font-size: 22pt; font-weight: border;}
+        </style>
+        <style type="text/css">
+            @font-face {
+                src: url("DroidSansFallback.ttf");
+                font-family: "DroidSansFallback";
+            }
+            
+            body {
+                font-family: "DroidSansFallback";
+                background-color: #dcdcdcd3
+            }
+        </style>
+    </head>
+    <body>
+        <h1 align="center"> 지지 4글자를 입력하세요 </h1>
+        <p>
+            <h3 align="center"> 1. 년지, 일지, 월지는 <a href="https://www.sajulink.com/ssMain/cal_2.jsp" target="_blank">여기</a>를 참고하여 입력하세요. </h3>
+            <h3 align="center"> 2. 시지는 아래의 표를 참고하여 입력하세요. </h3></p>
+    <!-- 사주팔자 출력 테이블 -->
+    <table align="center" border="2" width="480">
+        <tr  height="60">
+            <td align="center"><b><font size="6"> 시 </font></b></td>
+            <td align="center"><b><font size="6"> 일 </font></b></td>
+            <td align="center"><b><font size="6"> 월 </font></b></td>
+            <td align="center"><b><font size="6"> 년 </font></b></td>
+        </tr>
+        <tr align="center" height="120">
+            <td id="time_ground" class=""></td>
+            <td id="day_ground" class=""></td>
+            <td id="month_ground" class=""></td>
+            <td id="year_ground" class=""></td>
+        </tr>
+        <tr align="center" >
+            <td id="time_sal" class="">  </td>
+            <td id="day_sal" class="">  </td>
+            <td id="month_sal" class="">  </td>
+            <td id="year_sal" class="">  </td>
+        </tr>
+        <table align="center" border="2">
+            <tr align="center">
+                <td> 지지 </td>
+                <td> 子 </td>
+                <td> 丑 </td>
+                <td> 寅 </td>
+                <td> 卯 </td>
+                <td> 辰 </td>
+                <td> 巳 </td>
+                <td> 午 </td>
+                <td> 未 </td>
+                <td> 申 </td>
+                <td> 酉 </td>
+                <td> 戌 </td>
+                <td> 亥 </td>
+            </tr>
+            <tr align="center">
+                <td> 24시간 </td>
+                <td> 11:30 ~ 01:30 </td>
+                <td> 01:30 ~ 02:30 </td>
+                <td> 01:30 ~ 02:30 </td>
+                <td> 01:30 ~ 02:30 </td>
+                <td> 01:30 ~ 02:30 </td>
+                <td> 01:30 ~ 02:30 </td>
+                <td> 01:30 ~ 02:30 </td>
+                <td> 01:30 ~ 02:30 </td>
+                <td> 01:30 ~ 02:30 </td>
+                <td> 01:30 ~ 02:30 </td>
+                <td> 01:30 ~ 02:30 </td>
+                <td> 01:30 ~ 02:30 </td>
+            </tr>
+        <p align="center">
+            <!-- 년지, 월지, 일지, 시지 입력-->
+            년 <input type="text" id="text_year"> &nbsp;&nbsp;&nbsp;
+            월 <input type="text" id="text_month"><br><br>
+            일 <input type="text" id="text_day"> &nbsp;&nbsp;&nbsp;
+            시 <input type="text" id="text_time">
+        <br><br>
+            <button type="button" id="btn1" onclick="printt()"> 입력 </button> <!-- 테이블에 지지 출력-->
+            <button type="button" id="btn3" onclick="clearr()"> 초기화 </button> <!-- 테이블 출력부분 초기화-->
+        </p>
+        <script type="text/javascript">
+            var ground;
+            // 지지 출력
+            function printt() {
+                ground = document.getElementById("text_year").value;
+                if ((ground == "子") || (ground == "亥")) {
+                    document.getElementById("year_ground").innerHTML = ground;
+                    document.getElementById("year_ground").className = "blackk";
+                }
+                else if ((ground == "寅") || (ground == "卯")) {
+                    document.getElementById("year_ground").innerHTML = ground;
+                    document.getElementById("year_ground").className = "greenn";
+                }
+                else if ((ground == "巳") || (ground == "午")) {
+                    document.getElementById("year_ground").innerHTML = ground;
+                    document.getElementById("year_ground").className = "redd";
+                }
+                else if ((ground == "申") || (ground == "酉")) {
+                    document.getElementById("year_ground").innerHTML = ground;
+                    document.getElementById("year_ground").className = "whitee";
+                }
+                else {
+                    document.getElementById("year_ground").innerHTML = ground;
+                    document.getElementById("year_ground").className = "yelloww";
+                }
+                
+                ground = document.getElementById("text_month").value;
+                if ((ground == "子") || (ground == "亥")) {
+                    document.getElementById("month_ground").innerHTML = ground;
+                    document.getElementById("month_ground").className = "blackk";
+                }
+                else if ((ground == "寅") || (ground == "卯")) {
+                    document.getElementById("month_ground").innerHTML = ground;
+                    document.getElementById("month_ground").className = "greenn";
+                }
+                else if ((ground == "巳") || (ground == "午")) {
+                    document.getElementById("month_ground").innerHTML = ground;
+                    document.getElementById("month_ground").className = "redd";
+                }
+                else if ((ground == "申") || (ground == "酉")) {
+                    document.getElementById("month_ground").innerHTML = ground;
+                    document.getElementById("month_ground").className = "whitee";
+                }
+                else {
+                    document.getElementById("month_ground").innerHTML = ground;
+                    document.getElementById("month_ground").className = "yelloww";
+                }
+
+                ground = document.getElementById("text_day").value;
+                if ((ground == "子") || (ground == "亥")) {
+                    document.getElementById("day_ground").innerHTML = ground;
+                    document.getElementById("day_ground").className = "blackk";
+                }
+                else if ((ground == "寅") || (ground == "卯")) {
+                    document.getElementById("day_ground").innerHTML = ground;
+                    document.getElementById("day_ground").className = "greenn";
+                }
+                else if ((ground == "巳") || (ground == "午")) {
+                    document.getElementById("day_ground").innerHTML = ground;
+                    document.getElementById("day_ground").className = "redd";
+                }
+                else if ((ground == "申") || (ground == "酉")) {
+                    document.getElementById("day_ground").innerHTML = ground;
+                    document.getElementById("day_ground").className = "whitee";
+                }
+                else {
+                    document.getElementById("day_ground").innerHTML = ground;
+                    document.getElementById("day_ground").className = "yelloww";
+                }
+
+                ground = document.getElementById("text_time").value;
+                if ((ground == "子") || (ground == "亥")) {
+                    document.getElementById("time_ground").innerHTML = ground;
+                    document.getElementById("time_ground").className = "blackk";
+                }
+                else if ((ground == "寅") || (ground == "卯")) {
+                    document.getElementById("time_ground").innerHTML = ground;
+                    document.getElementById("time_ground").className = "greenn";
+                }
+                else if ((ground == "巳") || (ground == "午")) {
+                    document.getElementById("time_ground").innerHTML = ground;
+                    document.getElementById("time_ground").className = "redd";
+                }
+                else if ((ground == "申") || (ground == "酉")) {
+                    document.getElementById("time_ground").innerHTML = ground;
+                    document.getElementById("time_ground").className = "whitee";
+                }
+                else {
+                    document.getElementById("time_ground").innerHTML = ground;
+                    document.getElementById("time_ground").className = "yelloww";
+                }
+
+                showw();
+            }
+
+            function showw() {
+                // 월지, 일지, 시지 12신살 조건
+                var cond1 = (document.getElementById("year_ground").innerHTML == "申") || (document.getElementById("year_ground").innerHTML == "子") || (document.getElementById("year_ground").innerHTML == "辰");
+                var cond2 = (document.getElementById("year_ground").innerHTML == "寅") || (document.getElementById("year_ground").innerHTML == "午") || (document.getElementById("year_ground").innerHTML == "戌");
+                var cond3 = (document.getElementById("year_ground").innerHTML == "亥") || (document.getElementById("year_ground").innerHTML == "卯") || (document.getElementById("year_ground").innerHTML == "未");
+                var cond4 = (document.getElementById("year_ground").innerHTML == "巳") || (document.getElementById("year_ground").innerHTML == "酉") || (document.getElementById("year_ground").innerHTML == "丑");
+                // 12신살 조건
+                var arr_ground = ["子", "丑", "寅", "卯", "辰", "巳", "午", "未", "申", "酉", "戌", "亥"];
+                var arr_1 = ["장성살", "반안살", "역마살", "육해살", "화개살", "겁살", "재살", "천살", "지살", "도화살", "월살", "망신살"];
+                var arr_2 = ["재살", "천살", "지살", "도화살", "월살", "망신살", "장성살", "반안살", "역마살", "육해살", "화개살", "겁살"];
+                var arr_3 = ["도화살", "월살", "망신살", "장성살", "반안살", "역마살", "육해살", "화개살", "겁살", "재살", "천살", "지살"];
+                var arr_4 = ["육해살", "화개살", "겁살", "재살", "천살", "지살", "도화살", "월살", "망신살", "장성살", "반안살", "역마살"];
+                // 월지 12신살 출력
+                for (var i = 0; i < 12; i++) {
+                    if (cond1 && (document.getElementById("month_ground").innerHTML == arr_ground[i])) {
+                        document.getElementById("month_sal").innerHTML += arr_1[i] + "<br>";
+                    }
+                    if (cond2 && (document.getElementById("month_ground").innerHTML == arr_ground[i])) {
+                        document.getElementById("month_sal").innerHTML += arr_2[i] + "<br>";
+                    }
+                    if (cond3 && (document.getElementById("month_ground").innerHTML == arr_ground[i])) {
+                        document.getElementById("month_sal").innerHTML += arr_3[i] + "<br>";
+                    }
+                    if (cond4 && (document.getElementById("month_ground").innerHTML == arr_ground[i])) {
+                        document.getElementById("month_sal").innerHTML += arr_4[i] + "<br>";
+                    }
+                }
+                // 시지 12신살 출력
+                for (var i = 0; i < 12; i++) {
+                    if (cond1 && (document.getElementById("time_ground").innerHTML == arr_ground[i])) {
+                        document.getElementById("time_sal").innerHTML += arr_1[i] + "<br>";
+                    }
+                    if (cond2 && (document.getElementById("time_ground").innerHTML == arr_ground[i])) {
+                        document.getElementById("time_sal").innerHTML += arr_2[i] + "<br>";
+                    }
+                    if (cond3 && (document.getElementById("time_ground").innerHTML == arr_ground[i])) {
+                        document.getElementById("time_sal").innerHTML += arr_3[i] + "<br>";
+                    }
+                    if (cond4 && (document.getElementById("time_ground").innerHTML == arr_ground[i])) {
+                        document.getElementById("time_sal").innerHTML += arr_4[i] + "<br>";
+                    }
+                }
+                // 년지 12신살 출력
+                for (var i = 0; i < 12; i++) {
+                    if (cond1 && (document.getElementById("year_ground").innerHTML == arr_ground[i])) {
+                        document.getElementById("year_sal").innerHTML += arr_1[i] + "<br>";
+                    }
+                    if (cond2 && (document.getElementById("year_ground").innerHTML == arr_ground[i])) {
+                        document.getElementById("year_sal").innerHTML += arr_2[i] + "<br>";
+                    }
+                    if (cond3 && (document.getElementById("year_ground").innerHTML == arr_ground[i])) {
+                        document.getElementById("year_sal").innerHTML += arr_3[i] + "<br>";
+                    }
+                    if (cond4 && (document.getElementById("year_ground").innerHTML == arr_ground[i])) {
+                        document.getElementById("year_sal").innerHTML += arr_4[i] + "<br>";
+                    }
+                }
+                // 일지 12신살 출력
+                for (var i = 0; i < 12; i++) {
+                    if (cond1 && (document.getElementById("day_ground").innerHTML == arr_ground[i])) {
+                        document.getElementById("day_sal").innerHTML += arr_1[i] + "<br>";
+                    }
+                    if (cond2 && (document.getElementById("day_ground").innerHTML == arr_ground[i])) {
+                        document.getElementById("day_sal").innerHTML += arr_2[i] + "<br>";
+                    }
+                    if (cond3 && (document.getElementById("day_ground").innerHTML == arr_ground[i])) {
+                        document.getElementById("day_sal").innerHTML += arr_3[i] + "<br>";
+                    }
+                    if (cond4 && (document.getElementById("day_ground").innerHTML == arr_ground[i])) {
+                        document.getElementById("day_sal").innerHTML += arr_4[i] + "<br>";
+                    }
+                }
+            }
+            function clearr() {
+                document.getElementById("year_sal").innerHTML = "";
+                document.getElementById("month_sal").innerHTML = "";
+                document.getElementById("day_sal").innerHTML = "";
+                document.getElementById("time_sal").innerHTML = "";
+                document.getElementById("time_ground").innerHTML = "";
+                document.getElementById("year_ground").innerHTML = "";
+                document.getElementById("day_ground").innerHTML = "";
+                document.getElementById("month_ground").innerHTML = "";
+            }
+        </script>
+    </body>
+
+</html>
